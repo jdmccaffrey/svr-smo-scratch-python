@@ -2,13 +2,13 @@
 Support vector regression with SMO training from scratch using Python
 This implementation of support vector regression uses the sequential minimal optimization (SMO) algorithm for training (as opposed to quadratic programming or stochastic sub-gradient descent).
 
-The implementation uses a simple, single weights vector named alpha, instead of the common dual vectors, usually named alpha and alpha* approach.
+The implementation uses the standard dual alpha and alpha* weight vectors, instead of the less common single-alpha design.
 
 The implementation uses a hard-wired radial basis function (RBF) as the kernel function, as opposed to allowing different functions like the polynomial kernel or the linear kernel.
 
 SVR was popular for a short time in the late 1990s and early 2000s, until people discovered that the closely related kernel ridge regression (KRR) is superior to SVR in nearly every way.
 
-SVR is more difficult to implement than SVR. SVR parameters (gamma, epsilon, C, max iterations, tolerance) are much more difficult to tune than KRR parameters. SVR models typically don't perform as well as KRR models in terms of prediction accuracy.
+SVR is significantly more difficult to implement than SVR. SVR parameters (gamma, epsilon, C, max iterations, tolerance) are much more difficult to tune than KRR parameters. SVR models typically don't perform as well as KRR models in terms of prediction accuracy.
 
 All that said, there are some problem domains where SVR is still used. And SVR is extremely interesting from a mathematical point of view.
 
@@ -28,7 +28,7 @@ The demo implementation loosely follows the scikit-learn SVR module API. Example
     pred_y = model.predict(x)[0]
     print("Predicted y = %0.4f " % pred_y)
 
-    idxs = model.supp_vec_idxs()
+    idxs = model.get_supp_idxs()
     print("The indexes of the support vectors are: ")
     print(idxs)  # training items associated with near-zero alpha wts
 
@@ -43,3 +43,59 @@ The max_iter parameter sets the maximum consecutive number of times the SMO algo
 The tol parameter sets a tolerance for the KTT conditions. Increasing tol allows more updates to occur. 
 
 In practice, tuning SVR parameters is often extremely difficult.
+
+## Example Output
+
+The svr_smo.py file is a complete demo program that contains the key KernelSVR class. Output of the demo:
+
+```
+Begin scratch Python SVR using SMO training
+
+Loading synthetic train (200) and test (40) data
+Done
+
+First three train X:
+[-0.1660  0.4406 -0.9998 -0.3953 -0.7065]
+[ 0.0776 -0.1616  0.3704 -0.5911  0.7562]
+[-0.9452  0.3409 -0.1654  0.1174 -0.7192]
+
+First three train y:
+0.4840
+0.1568
+0.8054
+
+Creating SVR-SMO model
+Setting gamma = 0.2000
+Setting C = 1.00
+Setting epsilon = 0.031500
+Setting max_iter = 100
+Setting tol = 0.001000
+
+Creating and training SVR model using SMO
+Done
+
+Model dual coefs:
+[ 0.2701 -0.0088  0.3273 -0.2500 . . .  0.0789
+  0.0351 -0.1623  0.0303 -0.0444 . . .  0.1914
+  . . .
+ -0.0865 -0.2966 -0.1041 -0.0093 . . .  0.1513
+  0.1760]
+
+Model bias = 0.4364
+
+Number support vectors = 197
+
+Train accuracy (0.10) = 0.9450
+Test accuracy (0.10) = 0.9250
+
+Train MSE = 0.0001
+Test MSE = 0.0001
+
+Train R2 = 0.9965
+Test R2 = 0.9957
+
+Predicting for train_X[0]
+Predicted y = 0.4922
+
+End demo
+```
