@@ -38,7 +38,7 @@ The epsilon parameter controls which items are ignored during training. Increasi
 
 The C parameter controls regularization, to prevent alpha weights from becoming large. Increasing C increases the penalty for points falling outside the epsilon tube. This forces the model to fit the training data more strictly, which increases accuracy but creates an increased risk of model overfitting.
 
-The max_iter parameter sets the maximum number of times the SMO algorithm iterate without finding an improvement in alpha.
+The max_iter parameter sets the maximum consecutive number of times the SMO algorithm iterates without finding an improvement in alpha.
 
 The tol parameter sets a tolerance for the KTT conditions. Increasing tol allows more updates to occur. 
 
