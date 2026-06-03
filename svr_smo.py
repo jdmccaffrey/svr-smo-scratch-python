@@ -4,6 +4,9 @@
 # hard-wired RBF kernel function.
 # uses single signed alpha (weights), not alpha and alpha*.
 
+# I indent using 2 spaces instead of the usual 4 spaces --
+# just a personal preference.
+
 import numpy as np
 
 # -----------------------------------------------------------
