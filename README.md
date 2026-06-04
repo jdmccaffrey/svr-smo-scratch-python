@@ -8,13 +8,13 @@ The implementation uses a hard-wired radial basis function (RBF) as the kernel f
 
 SVR was popular for a short time in the late 1990s and early 2000s, until people discovered that the closely related kernel ridge regression (KRR) is superior to SVR in nearly every way.
 
-SVR is significantly more difficult to implement than SVR. SVR parameters (gamma, epsilon, C, max iterations, tolerance) are much more difficult to tune than KRR parameters. SVR models typically don't perform as well as KRR models in terms of prediction accuracy.
+SVR is significantly more difficult to implement than KRR. SVR parameters (gamma, epsilon, C, max iterations, tolerance) are much more difficult to tune than KRR parameters. SVR models typically don't perform as well as KRR models in terms of prediction accuracy (mostly because of the difficulty in tuning parameters).
 
 All that said, there are some problem domains where SVR is still used. And SVR is extremely interesting from a mathematical point of view.
 
 ## Usage
 
-One of the reasons that SVR parameters are difficult to tune is that they are intertwined. And slight changes can effectively move training vectors in and out of the epsilon tube, which creates large changes in the model.
+One of the reasons that SVR parameters are difficult to tune is that they are intertwined. Also, slight changes can effectively move training vectors in and out of the epsilon tube, which creates large changes in the model.
 
 The demo implementation loosely follows the scikit-learn SVR module API. Example calling code:
 
