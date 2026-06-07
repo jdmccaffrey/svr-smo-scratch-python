@@ -65,37 +65,37 @@ First three train y:
 0.8054
 
 Creating SVR-SMO model
-Setting gamma = 0.2000
+Setting gamma = 0.3000
 Setting C = 1.00
-Setting epsilon = 0.031500
+Setting epsilon = 0.0325
 Setting max_iter = 100
-Setting tol = 0.001000
+Setting KKT tol = 0.001000
 
 Creating and training SVR model using SMO
 Done
 
 Model dual coefs:
-[ 0.2701 -0.0088  0.3273 -0.2500 . . .  0.0789
-  0.0351 -0.1623  0.0303 -0.0444 . . .  0.1914
-  . . .
- -0.0865 -0.2966 -0.1041 -0.0093 . . .  0.1513
-  0.1760]
+[ 0.1209  0.2127  0.2883 -0.2028  . . .  0.0180
+  0.1330  0.0164  0.0507 -0.1139  . . .  0.1208
+. . .
+ -0.0874 -0.2291  0.0082 -0.0202  . . .  0.0391
+  0.2399]
 
-Model bias = 0.4364
+Model bias = 0.4123
 
 Number support vectors = 197
 
-Train accuracy (0.10) = 0.9450
+Train accuracy (0.10) = 0.9200
 Test accuracy (0.10) = 0.9250
 
-Train MSE = 0.0001
-Test MSE = 0.0001
+Train MSE = 0.0002
+Test MSE = 0.0002
 
-Train R2 = 0.9965
-Test R2 = 0.9957
+Train R2 = 0.9951
+Test R2 = 0.9941
 
 Predicting for train_X[0]
-Predicted y = 0.4922
+Predicted y = 0.4913
 
 End demo
 ```
